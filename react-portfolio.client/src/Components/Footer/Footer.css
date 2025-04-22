@@ -1,0 +1,29 @@
+.site-footer {
+    margin-top: 100px;
+    color: #ffffff;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-content {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+    .social-links a {
+        display: inline-block;
+        margin: 0 10px;
+        color: #ffffff;
+        font-size: 20px;
+        transition: color 0.3s ease;
+    }
+
+        .social-links a:hover {
+            color: #a1f76b;
+        }

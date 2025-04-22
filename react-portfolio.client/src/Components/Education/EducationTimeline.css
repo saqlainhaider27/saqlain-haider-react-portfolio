@@ -1,0 +1,226 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.timeline {
+    position: relative;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    margin-bottom: 70px;
+    margin-top: 50px;
+    padding: 15px 0;
+}
+
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        background: #ffffff;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -1px;
+    }
+
+.container {
+    padding: 15px 30px;
+    position: relative;
+    background: inherit;
+    width: 50%;
+    transition: transform 0.3s ease;
+}
+    .container:hover {
+        transform: scale(1.03) translateX(8px);
+        transform-origin: center;
+    }
+
+
+
+    .container.left {
+        left: 0;
+    }
+        .container.left:hover {
+            transform: scale(1.03) translateX(-8px);
+        }
+    .container.rigt:hover {
+        transform: scale(1.03) translateX(8px);
+    }
+
+
+    .container.right {
+        left: 50%;
+    }
+
+    .container::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: calc(50% - 8px);
+        right: -8px;
+        background: #ffffff;
+        border-radius: 16px;
+        z-index: 1;
+    }
+
+    .container.right::after {
+        left: -8px;
+    }
+
+    .container::before {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        top: calc(50% - 1px);
+        right: 8px;
+        background: #ffffff; /* changed to white */
+        z-index: 1;
+    }
+
+    .container.right::before {
+        left: 8px;
+        background: #ffffff; /* also white */
+    }
+
+    .container .date {
+        position: absolute;
+        display: inline-block;
+        top: calc(50%);
+        transform: translateY(-50%);
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        z-index: 1;
+    }
+
+    .container.left .date {
+        right: -150px; /* Increased distance */
+    }
+
+    .container.right .date {
+        left: -150px; /* Increased distance */
+    }
+
+    .container .icon {
+        position: absolute;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        padding: 9px 0;
+        top: calc(50% - 20px);
+        background: white;
+
+        background-size: 400% 400%;
+        animation: gradientMove 6s ease infinite;
+
+        border-radius: 40px;
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+        z-index: 1;
+    }
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container.left .icon {
+    right: 56px;
+}
+
+.container.right .icon {
+    left: 56px;
+}
+
+.container .content {
+    padding: 30px 90px 30px 30px;
+background: linear-gradient(90deg, #c2f970, #a1f76b, #5de85a);
+
+    background-size: 400% 400%;
+    animation: gradientMove 6s ease infinite;
+    position: relative;
+    border-radius: 0 500px 500px 0;
+    transition: transform 0.3s ease;
+}
+
+.container.right .content {
+    padding: 30px 30px 30px 90px;
+    border-radius: 500px 0 0 500px;
+}
+
+.container .content h2 {
+    margin: 0 0 10px 0;
+    font-size: 26px; /* <-- updated */
+    font-weight: bold; /* optional: makes it stand out more */
+    color: #003b29;
+}
+
+
+.container .content p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+
+@media (max-width: 767.98px) {
+    .timeline::after {
+        left: 90px;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 120px;
+        padding-right: 30px;
+    }
+
+        .container.right {
+            left: 0%;
+        }
+
+            .container.left::after,
+            .container.right::after {
+                left: 82px;
+            }
+
+            .container.left::before,
+            .container.right::before {
+                left: 100px;
+                border-color: white;
+            }
+
+            .container.left .date,
+            .container.right .date {
+                right: auto;
+                left: 15px;
+            }
+
+            .container.left .icon,
+            .container.right .icon {
+                right: auto;
+                left: 146px;
+            }
+
+            .container.left .content,
+            .container.right .content {
+                padding: 30px 30px 30px 90px;
+                border-radius: 500px 0 0 500px;
+            }
+}

@@ -1,0 +1,58 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 170px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 60px;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+    .nav-menu li {
+        position: relative;
+        cursor: pointer;
+        padding: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+        .nav-menu li::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #34d399, #2ecc71, #27ae60, #16a085); /* Warm vibrant greens */
+            background-size: 400% 400%;
+            animation: gradientAnimation 4s ease infinite;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu li:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu li:active::after {
+            width: 100%;
+        }
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
