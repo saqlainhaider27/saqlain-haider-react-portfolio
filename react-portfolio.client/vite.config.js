@@ -39,6 +39,7 @@ const target = env.ASPNETCORE_HTTPS_PORT ? `https://localhost:${env.ASPNETCORE_H
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: 'saqlain-haider-react-profile',
     plugins: [plugin()],
     resolve: {
         alias: {
@@ -58,4 +59,5 @@ export default defineConfig({
             cert: fs.readFileSync(certFilePath),
         }
     }
-})
+});
+
